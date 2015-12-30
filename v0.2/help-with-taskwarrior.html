@@ -1,0 +1,46 @@
+<hb title="Use OcLaunch with Taskwarrior"
+version="0.2.x"
+main="false"
+>
+
+<sep_/>
+
+<markdown command="pandoc" args="-f markdown -t html">
+<blockquote>Version: <version/></blockquote>
+
+### Prerequisite
+
+You have followed instructions on the <doc href="quick-start" type="hb"/>.
+
+### Let's start
+
+To use OcLaunch with Taskwarrior, simply add
+what you want.
+
+For example
+</markdown>
+
+<link rel="stylesheet" href="/hljs/styles/solarized_light.css"></link>
+<script src="/hljs/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<pre class="sourceCode json">
+<code class="sourceCode json">
+{
+    "progs":
+        [
+            "task +rdv",
+            "task ls"
+        ],
+    "settings":
+    [
+    ]
+}
+</code></pre>
+<markdown command="pandoc" args="-f markdown -t html">
+
+That's it ! Now, each time you open a terminal (since `oclaunch` is in your
+bashrc), it will remind you your tasks.
+</markdown>
+
+</hb>

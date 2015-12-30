@@ -1,0 +1,73 @@
+<hb
+version="0.2.x"
+title="A complete example with Tarsnap"
+main="false"
+>
+
+<sep_/>
+
+<markdown command="pandoc" args="-f markdown -t html">
+
+<blockquote>Version: <version/></blockquote>
+
+So you have <doc href="quick-start">installed</doc> OcLaunch.
+It is in your `bashrc` and works properly.
+
+What to do now? In this document, we will explain a basic example.
+
+### Daily backup with <ext-a href="http://www.tarsnap.com">Tarsnap</ext-a>
+
+tarsnap
+:   This software allows you to backup efficiently and securely on remote servers
+
+Imagine you want to backup a *directory* before working on it.
+This directory may contain text documents, for instance.
+
+You could create a `cron` job but that's quite complicated and you want to be
+sure to have a backup before start to work (you can't know what will append...).   
+This is a perfect job for `oclaunch`.
+
+We assume that your *backup command* is
+```
+tarsnap -c -f $(hostname -s)-$(date -u +%Y%m%d-%H%M%S) &lt;directory&gt;
+```
+That's said, any other one is okay.
+
+So you add your *backup command* to your `~/.oclaunch_rc.json` with ```-a```
+command like this:   
+```bash
+ $ echo “tarsnap -c -f $(hostname -s)-$(date -u +%Y%m%d-%H%M%S) &lt;directory&gt;” | oclaunch -a
+```
+
+And that's all.
+
+Because `oclaunch` is in your `.bashrc`, it will be called each time you open a
+terminal, when the backup command is called one time (the first one).
+
+You may also add it (`oclaunch`) to your session autostart, if you do not open terminals enough.
+
+### Want to simulate a computer restart?
+
+Do you want to do a backup in the middle of a computer session?
+
+Simply run
+```
+oclaunch -r
+```
+
+And `oclaunch` will behave as if you had restart !
+
+You can also *run a command* from number (starts at 0).   
+For example, instead of running your long backup command, enter:
+```
+oclaunch 0
+```
+(You can get the number with ```oclaunch -l```).
+
+### To be continued...
+
+More ideas on <doc href="usage-tips" type="hb">this wiki page</doc>.
+
+**Feedback welcome at leowzukw@vmail.me**
+</markdown>
+</hb>
