@@ -1,0 +1,201 @@
+<hb
+with-contents="true"
+version="0.2.x, 0.3.x"
+>
+
+<description>First steps to get started: installation, starting.</description>
+<title><i class="fa fa-rocket"></i> Quick start</title>
+
+<contents>
+
+<sep_/>
+
+<markdown command="pandoc" args="-f markdown -t html">
+
+<blockquote>Version: <version/></blockquote>
+
+OcLaunch is very easy to use.   
+But first, let's install it. You have several options:
+
+  + <doc href="#quick-and-dirty" type="hb">Easy way, without automatic update</doc>
+  + <doc href="#zero-install" type="hb">Using 0install, to choose which
+  precompilled binary you would use</doc>
+  + <doc href="#opam" type="hb">Using Opam, for OCaml masters</doc>
+  + <doc href="#sources" type="hb">From sources (especially for beta version)</doc>
+
+<h3 id="quick-and-dirty">Quick and dirty</h3>
+
+If you don’t want to test OcLaunch with 0install or opam as describeb below, you
+can compile from <doc href="sources" type="page">sources</doc> or use the binary inside 0install archives
+<ext-a href="http://download.tuxfamily.org/oclaunch/0install/">in this directory</ext-a>
+
+### Installation
+
+#### TL;DR
+**Goto this <ext-a href="http://download.tuxfamily.org/oclaunch/oclaunch.xml">page</ext-a> and follow instructions.**
+
+<h4 id="zero-install"><a href="http://www.0install.net">0install</a></h4>
+
+##### Introduction
+
+With this method, you will get a binary so that **you do not have to compile
+the program**, which can be a quite complicated and long step.
+
+##### Get 0install
+
+If you do not have 0install installed: see [installation
+instructions](http://0install.net/injector.html), especially <ext-a href="http://0install.net/users.html">here</ext-a>.
+
+##### Install OcLaunch
+
+You can find instructions on [this page][1].
+
+You should create an alias, as explained on [this page][1].
+
+```bash
+$ 0alias oclaunch http://download.tuxfamily.org/oclaunch/oclaunch.xml
+```
+
+[1]: http://download.tuxfamily.org/oclaunch/oclaunch.xml
+
+###### Errors
+
+If you get an error such as
+```
+export PATH=/home/you/bin/:$PATH
+```
+It means that `0install` can not define the new application in your `$PATH`.
+So it define it elsewhere and want you to add this folder to your path. You
+should add the `export...` line to your bashrc, so you can use 0install easier.
+
+##### Test that all work
+
+*In the rest of the document, we assume that the `oclaunch` command is found
+if you enter it in your terminal.*    
+To test, just open a new one and enter
+```
+oclaunch -help
+```
+It should return something like this : 
+```
+OcLaunch program is published under CeCILL licence. See
+    https://gitlab.com/WzukW/oclaunch for details.
+
+  oclaunch.byte [COMMAND NUMBER]
+
+See https://gitlab.com/WzukW/oclaunch for help.
+
+=== flags ===
+
+  [--reset-tmp]  Reinitialises launches by deleting temporal file.
+                 (aliases: -reset-tmp, -r)
+  [-build-info]  print info about this build and exit
+  [-version]     print the version of this build and exit
+  [-help]        print this help text and exit
+                 (alias: -?)
+```
+
+##### Update
+
+To update the software, you may use
+
+```
+0install update [the name you choose for oclaunch]
+```
+
+or
+
+```
+0launch -r http://download.tuxfamily.org/oclaunch/oclaunch.xml -version
+```
+
+This will allow you to refresh OcLaunch and display the new version number.
+
+<h4 id="opam">Opam</h4>
+
+You can install it with <ext-a href="http://opam.ocaml.org">Opam</ext-a>.
+
+```
+opam install oclaunch
+```
+
+If possible, try to use the latest version, which is not using the dependency
+```core_extended``` quite long to build.
+
+##### Want to build from an archive, git repository
+
+Pick up the url of the code <doc href="/sources" type="page">in this list of
+places</doc>. You will then do
+
+    opam pin add oclaunch-dev url
+
+remplace `oclaunch-dev` by the name of the package and `url` by the url picked
+up earlier.
+
+You may find further instructions for the git repository in <doc href="/blog/git-opam" type="post">this
+blog post</doc>.
+
+<blockquote>
+<p>Some old archives are not compatible with opam. Use the
+<doc href="#sources" type="hb">following method</doc>.</p>
+</blockquote>
+
+<h4 id="sources">From the <doc href="/sources" type="page">sources</doc></h4>
+
+##### Why build from sources
+
+Even if precompilled binaries are available, you may build the program from
+source. You may not trust binaries and want to use code you verified yourself.     
+Or you want to get the latest version, a beta one or to build from the
+<doc href="/sources#git" type="page">git repository</doc>.
+
+##### Building
+
+Get the sources <doc href="/sources" type="page">in this list (both git and tarballs)</doc>.
+
+You will find in the repository or in most archives an [Install.md
+file](https://gitlab.com/WzukW/oclaunch/blob/master/INSTALL.md).
+Dependancies are listed. The main ones are <ext-a href="https://github.com/janestreet/core">Core</ext-a>
+and <ext-a href="http://mjambon.com/yojson.html">YoJson</ext-a>.
+
+Briefly, you may run
+
+     ocaml setup.ml -configure
+     ocaml setup.ml -build
+     ocaml setup.ml -install
+
+<doc href="/contact">Contact me</doc> if you have any problem.
+
+### Use
+
+#### Add command to launch
+Add command throw ```cat | oclaunch -a```, enter your commands (one per line) and finish by
+```Ctrl-D```.
+They are put in ```~/.oclaunch_rc.json```.   
+You can find an example on <doc href="rc-example" type="page">this wiki</doc>.
+
+#### Last step
+Just add the following line to ```~/.bashrc```
+```
+oclaunch
+```
+
+This will allow you to launch each command added on terminal call.
+
+A complete help is displayed with
+```
+oclanch --help
+```
+
+A detailed example is available <doc href="complete-example" type="hb">here</doc>.
+
+Enjoy ;-)
+
+### Help
+
+There are <doc href="/help" type="page">several solutions to get
+help</doc>.
+</markdown>
+</contents>
+</hb>
+
