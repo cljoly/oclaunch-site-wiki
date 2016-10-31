@@ -17,17 +17,19 @@ version="0.3.x"
 OcLaunch is very easy to use.   
 But first, let's install it. You have several options:
 
-  + <doc href="latest/quick-start#quick-and-dirty" type="hb">Easy way, without automatic update</doc>
-  + <doc href="latest/quick-start#zero-install" type="hb">Using 0install, to choose which
+  + <doc href="#quick-and-dirty" type="hb">Easy way, without automatic update</doc>
+  + <doc href="#zero-install" type="hb">Using 0install, to choose which
   precompilled binary you would use</doc>
-  + <doc href="latest/quick-start#opam" type="hb">Using Opam, for OCaml masters</doc>
-  + <doc href="latest/quick-start#sources" type="hb">From sources (especially for beta version)</doc>
+  + <doc href="#opam" type="hb">Using Opam, for OCaml masters</doc>
+  + <doc href="#sources" type="hb">From sources (especially for beta version)</doc>
 
-<h3 id="quick-and-dirty">Quick and dirty</h3>
+<h3 id="quick-and-dirty">Quick and dirty (easy, without automatic update)</h3>
 
-If you don’t want to test OcLaunch with 0install or opam as describeb below, you
-can compile from <doc href="/sources" type="page">sources</doc> or use the binary inside 0install archives
-<ext-a href="https://download.tuxfamily.org/oclaunch/0install/">in this directory</ext-a>
+If you don’t want to test OcLaunch with 0install or Opam as describeb below, you
+can use the binary of 0install archives directly. Pick the right version
+<ext-a href="https://download.tuxfamily.org/oclaunch/v03/">in this
+  directory</ext-a>. See <doc href="faq#download-area">the FAQ for details of the
+organisation</doc>.
 
 ### Installation
 
@@ -168,27 +170,20 @@ Briefly, you may run
 ### Use
 
 #### Add command to launch
-Add command throw ```cat | oclaunch -a```, enter your commands (one per line) and finish by
-```Ctrl-D```.
-They are put in ```~/.oclaunch_rc.json```.   
-You can find an example on <doc href="latest/rc-example" type="page">this wiki</doc>.
+
+You may use ```oclaunch edit```. Your ```$EDITOR``` opens and let you enter your
+commands (one per line). Close the editor when you are finish.
+
+You can find ideas of command <doc href="latest/usage-tips" type="page">here</doc>.
 
 #### Last step
+
 Just add the following line to ```~/.bashrc```
 ```
-oclaunch
+oclaunch run
 ```
 
 This will allow you to launch each command added on terminal call.
-
-A complete help is displayed with
-```
-oclanch --help
-```
-
-A detailed example is available <doc href="latest/complete-example" type="hb">here</doc>.
-
-Enjoy ;-)
 
 ### Help
 
