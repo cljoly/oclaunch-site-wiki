@@ -1,5 +1,5 @@
-<hb title="Here is an example of configuration file"
-version="0.3.x-pre"
+<hb title="Example of configuration file"
+version="0.3.x"
 >
 
 <sep_/>
@@ -9,21 +9,20 @@ version="0.3.x-pre"
 
 <blockquote>Version: <version/></blockquote>
 
-<pre class="sourceCode json">
-<code class="sourceCode json">
-{
-    "progs":
-        [
-            "profanity",
-            "oclock",
-            "task +rdv",
-            "task ls"
-        ],
-    "settings":
-    [
-    ]
-}
+<pre class="sourceCode scheme">
+<code class="sourceCode scheme">
+;; You probably do NOT need to edit this file manually.
+;; Anyway, you may find help at https://s.oclaunch.eu.org/rc
+
+
+((entries
+  (((command "cat dev.scm") (tags ())) ((command task) (tags ()))
+   ((command "du -sh ./_build/src/oclaunch.native") (tags ()))
+   ((command "free -h") (tags ())) ((command "echo \"Finish\"") (tags ()))))
+ (common_tags ()) (settings ()))
+
 </code></pre>
-<!--<markdown command="pandoc" args="-f markdown -t html">-->
-<!--</markdown>-->
+<markdown command="pandoc" args="-f markdown -t html">
+ + The syntax used is the scheme-like <ext-a href="http://realworldocaml.org/v1/en/html/data-serialization-with-s-expressions.html#the-sexp-format">sexp</ext-a>.
+</markdown>
 </hb>

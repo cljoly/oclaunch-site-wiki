@@ -1,5 +1,5 @@
 <hb title="Use OcLaunch with Taskwarrior"
-version="0.3.x-pre"
+version="0.3.x"
 main="false"
 >
 
@@ -17,29 +17,12 @@ You have followed instructions on the <doc href="latest/quick-start" type="hb"/>
 To use OcLaunch with Taskwarrior, simply add
 what you want.
 
-For example
-</markdown>
+For instance, add ```task +rdv``` and ```task ls``` with
+``` bash
+ $ echo 'task +rdv\ntask ls' | oclaunch add
+```
 
-<link rel="stylesheet" href="/hljs/styles/solarized_light.css"></link>
-<script src="/hljs/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<pre class="sourceCode json">
-<code class="sourceCode json">
-{
-    "progs":
-        [
-            "task +rdv",
-            "task ls"
-        ],
-    "settings":
-    [
-    ]
-}
-</code></pre>
-<markdown command="pandoc" args="-f markdown -t html">
-
-That's it ! Now, each time you open a terminal (since `oclaunch` is in your
+That's it ! Now, each time you open a terminal (since `oclaunch run` is in your
 bashrc), it will remind you your tasks.
 </markdown>
 

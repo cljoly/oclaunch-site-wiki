@@ -1,5 +1,5 @@
 <hb
-version="0.3.x-pre"
+version="0.3.x"
 title="A complete example with Tarsnap"
 main="false"
 >
@@ -28,15 +28,15 @@ sure to have a backup before start to work (you can't know what will append...).
 This is a perfect job for `oclaunch`.
 
 We assume that your *backup command* is
-```
-tarsnap -c -f $(hostname -s)-$(date -u +%Y%m%d-%H%M%S) &lt;directory&gt;
+``` bash
+ $ echo tarsnap -c -f $(hostname -s)-$(date -u +%Y%m%d-%H%M%S) directory
 ```
 That's said, any other one is okay.
 
 So you add your *backup command* to your `~/.oclaunch_rc.json` with ```-a```
 command like this:   
 ```bash
- $ echo “tarsnap -c -f $(hostname -s)-$(date -u +%Y%m%d-%H%M%S) &lt;directory&gt;” | oclaunch -a
+ $ echo 'tarsnap -c -f $(hostname -s)-$(date -u +%Y%m%d-%H%M%S) directory' | oclaunch -a
 ```
 
 And that's all.
@@ -51,23 +51,22 @@ You may also add it (`oclaunch`) to your session autostart, if you do not open t
 Do you want to do a backup in the middle of a computer session?
 
 Simply run
-```
-oclaunch -r
+``` bash
+ $ oclaunch reset-all
 ```
 
 And `oclaunch` will behave as if you had restart !
 
 You can also *run a command* from number (starts at 0).   
 For example, instead of running your long backup command, enter:
+``` bash
+ $ oclaunch run 0
 ```
-oclaunch 0
-```
-(You can get the number with ```oclaunch -l```).
+(You can get the number with ```oclaunch list```).
 
 ### To be continued...
 
 More ideas on <doc href="latest/usage-tips" type="hb">this wiki page</doc>.
 
-**Feedback welcome at leowzukw@vmail.me**
 </markdown>
 </hb>

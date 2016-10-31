@@ -1,5 +1,5 @@
 <hb title="Environnement variable"
-version="0.3.x-pre"
+version="0.3.x"
 main="false"
 >
 
@@ -10,12 +10,14 @@ main="false"
 
 You can use some variable to change the program behavior:
 
-  Variable                          Usage
-------------------   --------------------------------------
-`OC_TMP`                 Change temporal file
-`OC_RC`                Change rc (i.e. configuration) file
-`OC_NOCOLOR`           Disable color usage
-`OC_VERB`                 Set verbosity
+  Variable                     Usage
+-------------   -------------------------------------------------------------------
+`OC_TMP`          Change temporal file path
+`OC_RC`           Change rc (i.e. configuration) file path
+`OC_RC_OLD`       Chang old rc file, usefull to import from another file
+`OC_NOCOLOR`      Disable color usage, if set to anything different of 0
+`OC_YES`          Always answer yes to question, if set to 1
+`OC_VERB`         Set verbosity, for instance 5 is very verbose whereas 0 is quiet
 
 </markdown>
 </hb>
