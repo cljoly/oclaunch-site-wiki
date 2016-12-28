@@ -1,0 +1,71 @@
+<hb title="Environnement variable"
+version="0.3.x"
+main="false"
+>
+
+<sep_/>
+
+<markdown command="pandoc" args="-f markdown -t html">
+### What auto-launch is and how to disable it
+
+#### Concept
+
+When you use a command like `oclaunch run`, without a number, oclaunch figures
+out the next command to launch, if any, and then launch it.
+
+This behavior constitutes *auto-launch*. It is intended to allow to place the
+`oclaunch run` command in your `.bashrc` (or equivalent) and launch command one by one as terminals
+are opened.
+
+However, sometimes you spawn a terminal from inside a program like thunar or
+[neovim](https://neovim.io) and you want this very terminal to work directly,
+ignoring auto-launch directive, especially if oclaunch would run a long command,
+during which you couldn’t use the terminal.
+
+#### Disable it
+
+There are several options, so you can choose the most convenient:
+
+##### Environment variable
+
+You may set the environment variable `OC_DISABLE` to anything and auto-launch
+will be disabled. This applies to current shell only.
+
+###### Enable
+
+``` sh
+export OC_DISABLE
+```
+
+###### Disable
+
+``` sh
+unset OC_DISABLE
+```
+
+##### Tmp file
+
+You can disable auto-launch system wide too, using commands below. This write a
+value to tmp file and thus, the setting is applied system wide, until next
+reboot.
+
+###### Enable
+
+``` sh
+oclaunch enable
+```
+
+###### Disable
+
+``` sh
+oclaunch disable
+```
+
+##### Planned
+
+ + Allow to disable even after reboot (using a file in ~/.config for instance)
+ + Allow to disable per entry
+
+</markdown>
+
+</hb>
